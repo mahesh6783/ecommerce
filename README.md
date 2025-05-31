@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/84100604-4cdc-4feb-9a54-8f3bfdb6b645)# 🛍️ Django eCommerce Web App
+# 🛍️ Django eCommerce Web App
 
 A full-featured eCommerce web application built using Django. This project includes user registration, login, cart, product ordering, OTP-based order confirmation, admin panel, and order tracking.
 
@@ -15,9 +15,6 @@ A full-featured eCommerce web application built using Django. This project inclu
 - Admin: View Orders, Deliver and Update Delivery Date
 - Order History with Past Ordered Products
 
-## 🖼️ Screenshots
-
-> ![image](https://github.com/user-attachments/assets/9f76abd6-bbba-4385-b35c-db60dadad490)
 
 
 ## 🛠️ Tech Stack
