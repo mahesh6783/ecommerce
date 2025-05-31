@@ -1,0 +1,40 @@
+{% extends 'a_navbar.html' %}
+{% block content %}
+{% load static %}
+
+ 
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{user.u_name}}</td>
+                        <td>{{user.u_add}}</td>
+                        <td>{{user.u_phone}}</td>
+                        <td>{{user.u_gender}}</td>
+                        <td>{{user.u_email}}</td>
+                      
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

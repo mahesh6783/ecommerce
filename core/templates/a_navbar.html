@@ -1,0 +1,125 @@
+ 
+<!-- <a href="../a_admin_home/">Dashoboard</a> |<a href="../a_users/">Users</a> |<a href="../a_product/">product</a> |<a href="../a_add_product/">Add Product</a>|<a href="/log_out/">logout</a>| -->
+ 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Fonts and Icons -->
+    <link href="{% static 'admin/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700,900" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="{% static 'admin/css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body id="page-top"> 
+    <div id="wrapper"> 
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"> 
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../a_admin_home/">
+                <div class="sidebar-brand-icon rotate-n-15"></div>
+                <div class="sidebar-brand-text mx-3">Admin Panel</div>
+            </a> 
+
+            <hr class="sidebar-divider my-0"> 
+
+            <li class="nav-item active">
+                <a class="nav-link" href="../a_admin_home/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../a_users/">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Users</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../a_product/">
+                    <i class="fas fa-fw fa-cart-plus"></i>
+                    <span>Product</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="../a_add_product/">
+                    <i class="fas fa-fw fa-cart-plus"></i>
+                    <span>Add Product</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/log_out/">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    <span>Log Out</span></a>
+            </li>
+             
+            
+        </ul>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column"> 
+            <div id="content"> 
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">  
+                    <ul class="navbar-nav ml-auto"> 
+                        <div class="topbar-divider d-none d-sm-block"></div> 
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                <img class="img-profile rounded-circle"
+                                     src="{% static 'img/undraw_profile.svg' %}">
+                            </a> 
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>                              
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../log_out/" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li> 
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+
+                   
+
+                    <!-- Main Content Start -->
+                    {% block content %}
+
+        
+
+                    {% endblock %}  
+                    <!-- Main Content End -->
+                
+                </div>
+            </div>  
+        </div>  
+    </div>  
+
+    <!-- Scripts -->
+    <script src="{% static 'admin/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'admin/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'admin/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'admin/js/sb-admin-2.min.js' %}"></script>
+    <script src="{% static 'admin/vendor/chart.js/Chart.min.js' %}"></script>
+    <script src="{% static 'admin/js/demo/chart-area-demo.js' %}"></script>
+    <script src="{% static 'admin/js/demo/chart-pie-demo.js' %}"></script>
+    <script src="{% static 'admin/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'admin/js/demo/datatables-demo.js' %}"></script>
+    <script src="{% static 'admin/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'admin/js/sb-admin-2.min.js' %}"></script>
+</body>
+</html>

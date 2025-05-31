@@ -1,0 +1,72 @@
+ {% extends 'a_navbar.html' %}
+{% block content %}
+{% load static %}
+   
+<div class="card shadow mb-4">    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr> 
+                    <th>Product</th> 
+                     
+                    <th>Name</th> 
+                    <th>Quantity</th>  
+                    <th>Price</th>  
+                    <th>Sub total</th>
+                                 
+                </tr>
+                {% for o in order %}
+                <tr>  
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                    <td><img src="{% static '' %}{{o.p_image}}" alt="" style="width: 134px; height: 134px;"></td>
+                    <td>{{o.p_name}}</td> 
+                    <td> {{o.p_quantity}}</td>  
+                    <td>{{o.p_price}}</td>  
+                    <td>{{o.p_subtital}}</td>
+              
+                </tr>
+                {% endfor %}
+            </table>  
+        </div>
+    </div>                      
+</div>
+
+<div class="card shadow mb-4">    
+    <div class="card-body">
+        <div class="table-responsive">
+           
+                
+                {% for o in order1 %}
+          
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                    Name : {{o.d_name}} <br>
+                    Addres : {{o.d_add}} <br>
+                    Date : {{o.o_date}}   <br>                    
+                    <h3 style="color: rgb(251, 75, 75) ;  font-weight:bolder;">Total : {{o.total_amout}} </h3>
+                    
+                    {% if o.d_date %}
+                    <h3 style="color: rgb(28, 96, 233) ;  font-weight:bolder;">Delivered Date : {{o.d_date}} </h3>
+                    {% else %}
+                    <form method="post">
+                         {% csrf_token %}                        
+                        <div class="form-row">
+                            
+                            <div class="col">
+                                <input type="password" class="form-control" id="inputPassword2" placeholder="Enter User OTP" name="otp">
+                            </div>
+                            <div class="col">
+                                    <button type="submit" class="btn btn-primary mb-2">Confirm Delivered</button>
+                            </div>
+                        </div>
+                    </form> 
+                    {% endif %}
+                                
+                {% endfor %}
+       
+        </div>
+    </div>                      
+</div>
+  
+
+ 
+{% endblock %}

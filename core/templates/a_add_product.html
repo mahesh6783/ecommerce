@@ -1,0 +1,75 @@
+{% extends 'a_navbar.html' %}
+{% block content %}
+{% load static %}
+
+ 
+
+
+
+
+<div class="container h-70">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">   
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body"> 
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5"> 
+                    <h6 class="mb-0">Product Image</h6>            
+              </div>
+              <div class="col-md-9 pe-5"> 
+                 <input type="file" class="form-control form-control-lg" id="imageInput" accept=".jpg, .jpeg, .png" name="image">
+              </div>
+            </div>
+             <hr class="mx-n3"> 
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5"> 
+                <h6 class="mb-0">Product name</h6> 
+              </div>
+              <div class="col-md-9 pe-5"> 
+                <input type="text" class="form-control form-control-lg" name="pname">
+               </div>
+            </div> 
+            <hr class="mx-n3"> 
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5"> 
+                <h6 class="mb-0">Price</h6> 
+              </div>
+              <div class="col-md-9 pe-5">  
+                <input type="text" class="form-control form-control-lg" name="pprice" > 
+              </div>
+            </div> 
+            <hr class="mx-n3"> 
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5"> 
+                <h6 class="mb-0">Product Details</h6> 
+              </div>
+              <div class="col-md-9 pe-5"> 
+                 <textarea name="p_details" class="form-control" id="" ></textarea> 
+              </div>
+            </div>  
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5"> 
+                <h6 class="mb-0">Product Category</h6> 
+              </div>
+              <div class="col-md-9 pe-5">  
+                <select name="pcat" id=""  class="form-control form-control-lg" >
+                    <option value="Fashion">Fashion</option>
+                    <option value="Electronic">Electronic</option>
+                    <option value="Jewellery">Jewellery</option>
+                </select> 
+              </div>
+            </div> 
+            <hr class="mx-n3"> 
+            <div class="px-5 py-4">
+               <input type="submit" class="btn btn-primary btn-lg" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+            </div> 
+          </div>
+        </div>
+        </form>  
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

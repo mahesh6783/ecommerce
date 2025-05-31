@@ -1,0 +1,134 @@
+ {% extends 'a_navbar.html' %}
+{% block content %}
+{% load static %}
+
+ 
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv1">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">New Order</span>
+</button>
+
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv2">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">Order History</span>
+</button>
+
+ 
+ 
+      
+     
+
+
+ 
+<div id="div1"> 
+    <br>
+<div class="card shadow mb-4">    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr> 
+                    <th>Name</th> 
+                    <th>Address</th>
+                    <th>Location</th> 
+                    <th>Order</th>  
+                    <th >Status</th>                 
+                </tr>
+                {% for d in new_order %}
+                <tr>  
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                     <td>{{d.d_name}}</td>
+                    <td>{{d.d_add}}</td> 
+                    <td><a href="{{d.d_location}}">view</a></td>  
+                    <td><a href="/a_order_details?id={{d.id}}">view order</a></td>  
+                    <td>{{d.p_status}}</td>
+              
+                </tr>
+                {% endfor %}
+            </table>  
+        </div>
+    </div>                      
+</div>
+</div>
+
+
+<div id="div2"> 
+    <br>
+<div class="card shadow mb-4">   
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr> 
+                    <th>Name</th> 
+                    <th>Address</th>
+                    <th>Location</th> 
+                    <th>Order</th>  
+                    <th >Status</th>                 
+                </tr>
+                {% for d in order_history %}
+                <tr>  
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                     <td>{{d.d_name}}</td>
+                    <td>{{d.d_add}}</td> 
+                    <td><a href="{{d.d_location}}">view</a></td>  
+                    <td><a href="/a_order_details?id={{d.id}}">view order</a></td>  
+                    <td>{{d.p_status}}</td>
+              
+                </tr>
+                {% endfor %}
+            </table> 
+        </div>
+    </div>                   
+</div>
+</div>
+
+
+ 
+<br>
+
+   <script>
+        const showDiv1Btn = document.getElementById('showDiv1');
+        const showDiv2Btn = document.getElementById('showDiv2');
+       
+      
+
+        const div1 = document.getElementById('div1');
+        const div2 = document.getElementById('div2');
+        
+        
+
+        div1.classList.remove('hidden');
+        div2.classList.add('hidden');
+    
+        
+        
+        
+        showDiv1Btn.addEventListener('click', function() {
+            div1.classList.remove('hidden');
+            div2.classList.add('hidden');
+        
+            
+                
+        });
+    
+        showDiv2Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.remove('hidden');
+           
+            
+            
+        });
+        showDiv3Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.add('hidden');
+          
+     
+         
+         
+            
+        });
+   </script>
+{% endblock %}

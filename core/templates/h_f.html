@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Trendora</title>
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+      <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+   </head>
+   <body>
+      <div class="banner_bg_main">
+          
+
+         <div class="logo_section">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="logo">
+                        <a href=""><img src="{% static 'images/logo1.png' %}" style="width: 150px;" alt="Logo"></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="header_section" style="margin-top: 40px;">
+            <div class="container">
+               <div class="containt_main">
+
+                  <!-- <a href=""><img src="{% static 'images/logo1.png' %}" style="width: 100px; padding-left: 0px;" alt="Logo"></a> -->
+
+                  <div id="mySidenav" class="sidenav">
+                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     <a href="/">Home</a>
+                     <a href="/product?id=1">Fashion</a>
+                     <a href="/product?id=2">Electronic</a>
+                     <a href="/product?id=3">Jewellery</a>
+                  </div>
+                  <span class="toggle_icon" onclick="openNav()"><img src="{% static 'images/toggle-icon.png' %}" alt=""></span>
+
+                  
+
+                  <div class="main">
+                     <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search this blog">
+                        <div class="input-group-append">
+                           <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522">
+                           <i class="fa fa-search"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="header_box">
+                      
+
+                     <div class="login_menu">
+                        <ul>
+                           <li><a href="../cart"><i class="fa fa-shopping-cart"></i><span class="padding_10">Cart</span></a></li>
+                           <!-- <li><a href="../create_account"><i class="fa fa-user"></i><span class="padding_10">Account</span></a></li> -->
+                           
+                           {% if login %}
+                           <li><a href="/order/"><i class="fa fa-shopping-cart"></i><span class="padding_10">Order</span></a></li>
+                           <li><a href="/log_out/"><i class="fa fa-user"></i><span class="padding_10">logout</span></a></li>
+                           {% else %}
+                           <li >
+                              <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 <i class="fa fa-user"></i><span class="padding_10">Account</span></a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black; border-color: white;">
+                                 <a class="dropdown-item" href="../create_account">Sign Up</a>
+                                 <a class="dropdown-item" href="../login">Sign In</a>
+                              </div>
+                           </li>
+                            
+                           {% endif %}
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="banner_section layout_padding">
+            <div class="container">
+               <div id="my_slider" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     {% for i in "123" %}
+                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">Get Start <br>Your favorite shopping</h1>
+                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+                  <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                  <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      
+
+       {% block content %}
+
+       
+
+        {% endblock %}  
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="footer_logo">
+               <a href=""><img src="{% static 'images/logo1.png' %}" style="width: 100px;"></a>
+            </div>
+            <div class="input_bt">
+               <input type="text" class="mail_bt" placeholder="Your Email">
+               <span class="subscribe_bt"><a href="#">Subscribe</a></span>
+            </div>
+            <div class="footer_menu">
+               <ul>
+                  <li><a href="#">Best Sellers</a></li>
+                  <li><a href="#">Gift Ideas</a></li>
+                  <li><a href="#">New Releases</a></li>
+                  <li><a href="#">Today's Deals</a></li>
+                  <li><a href="#">Customer Service</a></li>
+               </ul>
+            </div>
+          </div>
+      </div>
+
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script>
+         function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+         }
+         function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+         }
+      </script>
+   </body>
+</html>

@@ -1,0 +1,198 @@
+{% extends 'h_f1.html' %}
+{% block content %}
+{% load static %}
+ 
+
+<br><br><br><br>
+
+<center>
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv1">    
+    <span class="text">New Order</span>
+</button>
+
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv2">     
+    <span class="text">Order History</span>
+</button>
+</center>
+
+
+
+
+<div id="div1">
+<br><br>
+{% for order in orders %}
+<div class="container py-7 " style="border-radius: 10px;">
+<div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12">
+    <div class="card card-stepper" style="border-radius: 16px;">
+
+        <div class="card-body p-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+            <a href="/order_details?id={{order.id}}"><h5 class="mb-0"><span class="text-primary font-weight-bold">Order Details</span></h5></a>
+            </div>
+            <div class="text-end">
+            <p class="mb-0">Orderd Date : <span>{{order.o_date}}</span></p>
+            <p class="mb-0">Expected Arrival : <span>01/12/19</span></p>
+            <p class="mb-0">Amount : <span class="font-weight-bold"> {{order.total_amout}}</span></p>
+            <p class="mb-0 text-success">OTP: <strong>{{ order.otp }}</strong></p>
+            </div>
+        </div>
+
+        <ul id="progressbar-2" class="d-flex justify-content-between mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
+            <li class="step0 active text-center" id="step1"></li>
+            <li class="step0 text-center" id="step2"></li>
+            <li class="step0 text-center" id="step3"></li>
+            <li class="step0 text-muted text-end" id="step4"></li>
+        </ul>
+
+        <div class="d-flex justify-content-between">
+            <div class="d-lg-flex align-items-center">
+            <i class="fas fa-clipboard-list fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+            <div>   
+                <p class="fw-bold mb-1">Order</p>
+                <p class="fw-bold mb-0">Processed</p>
+            </div>
+            </div>
+            <div class="d-lg-flex align-items-center">
+            <i class="fas fa-box-open fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+            <div>
+                <p class="fw-bold mb-1">Order</p>
+                <p class="fw-bold mb-0">Shipped</p>
+            </div>
+            </div>
+            <div class="d-lg-flex align-items-center">
+            <i class="fas fa-shipping-fast fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+            <div>
+                <p class="fw-bold mb-1">Order</p>
+                <p class="fw-bold mb-0">En Route</p>
+            </div>
+            </div>
+            <div class="d-lg-flex align-items-center">
+            <i class="fas fa-home fa-3x me-lg-4 mb-3 mb-lg-0"></i>
+            <div>
+                <p class="fw-bold mb-1">Order</p>
+                <p class="fw-bold mb-0">Arrived</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div> 
+</div>
+<br>
+{% endfor %}
+</div>
+
+
+
+
+
+<div id="div2">
+<section class="h-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card" style="border-radius: 10px;">
+           
+          <div class="card-body p-4">
+ 
+            {% for o_h in order_history %}
+<div class="card shadow-0 border mb-4">
+    <div class="card-body">
+        <table width="100%">
+        {% for o_h_p in o_h.p_order_set.all %}
+            <tr>
+                <td>
+                    <img src="{% static '' %}{{o_h_p.p_image}}" alt="Product" class="img-fluid rounded mb-3 product-image" style="width: 134px; height: 134px;" id="mainImage">
+                </td>
+                <td> 
+                    <p class="text-muted mb-0">{{o_h_p.p_name}}</p>
+                </td>
+                <td> 
+                    <p class="text-muted mb-0 small">{{o_h_p.p_price}}</p>
+                </td>
+                <td> 
+                    <p class="text-muted mb-0 small">Qty: {{o_h_p.p_quantity}}</p>
+                </td>
+                <td> 
+                    <p class="text-muted mb-0 small">{{o_h_p.p_subtital}}</p>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+        Ordered date : {{o_h.o_date}}<br>
+        Delivered date : {{o_h.d_date}}<br>
+        Total Amount : {{o_h.total_amout}}
+    </div>
+</div>
+{% endfor %}
+   
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<br>
+</div>
+
+
+
+ 
+
+<script>
+        const showDiv1Btn = document.getElementById('showDiv1');
+        const showDiv2Btn = document.getElementById('showDiv2');
+       
+      
+
+        const div1 = document.getElementById('div1');
+        const div2 = document.getElementById('div2');
+        
+        
+
+        div1.classList.remove('hidden');
+        div2.classList.add('hidden');
+    
+        
+        
+        
+        showDiv1Btn.addEventListener('click', function() {
+            div1.classList.remove('hidden');
+            div2.classList.add('hidden');
+        
+            
+                
+        });
+    
+        showDiv2Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.remove('hidden');
+           
+            
+            
+        });
+        showDiv3Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.add('hidden');
+          
+     
+         
+         
+            
+        });
+   </script>
+
+
+
+
+
+
+
+
+
+{% endblock %}

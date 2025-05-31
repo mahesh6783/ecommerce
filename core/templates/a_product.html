@@ -1,0 +1,183 @@
+{% extends 'a_navbar.html' %}
+{% block content %}
+{% load static %}
+
+ 
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv1">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">Fashion</span>
+</button>
+
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv2">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">Eelectronic</span>
+</button>
+
+<button class="btn btn-primary btn-icon-split btn-lg" id="showDiv3">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">Jewellery</span>
+</button>
+
+ 
+      
+     
+
+
+ 
+<div id="div1"> 
+    <br>
+<div class="card shadow mb-4">    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr> 
+                    <th>Product</th> 
+                    <th>name</th>
+                    <th>Price</th> 
+                    <th>rating</th> 
+                    <th>details</th>  
+                    <th colspan="2">action</th>                 
+                </tr>
+                {% for d in data1 %}
+                <tr>  
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                    <td><img class="rounded-circle flex-shrink-0" src="{% static '' %}{{d.image}}" alt="" style="width: 134px; height: 134px;"></td>
+                    <td>{{d.p_name}}</td>
+                    <td>{{d.p_price}}</td> 
+                    <td>{{d.p_rating}}</td>  
+                    <td>{{d.p_det|safe}}</td>  
+                    <td><a href="/a_delete_product?id={{d.id}}">delete</a></td>
+                    <td><a href="/a_edit_product?id={{d.id}}">Edit</a></td>      
+                </tr>
+        {% endfor %}
+            </table>  
+        </div>
+    </div>                      
+</div>
+</div>
+
+
+<div id="div2"> 
+    <br>
+<div class="card shadow mb-4">   
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr> 
+                    <th>Product</th> 
+                    <th>name</th>
+                    <th>Price</th> 
+                    <th>rating</th> 
+                    <th>details</th>  
+                    <th colspan="2">action</th>                 
+                </tr>
+                {% for d in data2 %}
+                <tr>  
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                    <td><img class="rounded-circle flex-shrink-0" src="{% static '' %}{{d.image}}" alt="" style="width: 134px; height: 134px;"></td>
+                    <td>{{d.p_name}}</td>
+                    <td>{{d.p_price}}</td> 
+                    <td>{{d.p_rating}}</td>  
+                    <td>{{d.p_det|safe}}</td>  
+                    <td><a href="/a_delete_product?id={{d.id}}">delete</a></td>
+                <td><a href="/a_edit_product?id={{d.id}}">Edit</a></td>  
+                </tr>
+                {% endfor %}
+            </table> 
+        </div>
+    </div>                   
+</div>
+</div>
+
+
+<div id="div3"> 
+    <br>
+<div class="card shadow mb-4">  
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr> 
+                    <th>Product</th> 
+                    <th>name</th>
+                    <th>Price</th> 
+                    <th>rating</th> 
+                    <th>details</th> 
+
+                    <th colspan="2">action</th>                 
+                </tr>
+                {% for d in data3 %}
+                <tr>  
+                    <!-- <td><a href="/a_user_account_info?id={{d.5}}">{{d.image}}</a></td>   -->
+                    <td><img class="rounded-circle flex-shrink-0" src="{% static '' %}{{d.image}}" alt="" style="width: 134px; height: 134px;"></td>
+                    <td>{{d.p_name}}</td>
+                    <td>{{d.p_price}}</td> 
+                    <td>{{d.p_rating}}</td>  
+                    <td>{{d.p_det|safe}}</td> 
+
+                    <td><a href="/a_delete_product?id={{d.id}}">delete</a></td> 
+                    <td><a href="/a_edit_product?id={{d.id}}">Edit</a></td>        
+                
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+
+   <script>
+        const showDiv1Btn = document.getElementById('showDiv1');
+        const showDiv2Btn = document.getElementById('showDiv2');
+        const showDiv3Btn = document.getElementById('showDiv3');
+      
+
+        const div1 = document.getElementById('div1');
+        const div2 = document.getElementById('div2');
+        const div3 = document.getElementById('div3');
+        
+
+        div1.classList.remove('hidden');
+        div2.classList.add('hidden');
+        div3.classList.add('hidden');
+     
+        
+        
+        
+        showDiv1Btn.addEventListener('click', function() {
+            div1.classList.remove('hidden');
+            div2.classList.add('hidden');
+            div3.classList.add('hidden');
+            
+                
+        });
+    
+        showDiv2Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.remove('hidden');
+            div3.classList.add('hidden');
+            
+            
+        });
+        showDiv3Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.add('hidden');
+            div3.classList.remove('hidden');
+            
+            
+        });
+        showDiv4Btn.addEventListener('click', function() {
+            div1.classList.add('hidden');
+            div2.classList.add('hidden');
+            div3.classList.add('hidden');
+         
+            
+        });
+   </script>
+{% endblock %}
