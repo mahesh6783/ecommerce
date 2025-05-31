@@ -1,4 +1,4 @@
-# 🛍️ Django eCommerce Web App
+![image](https://github.com/user-attachments/assets/84100604-4cdc-4feb-9a54-8f3bfdb6b645)# 🛍️ Django eCommerce Web App
 
 A full-featured eCommerce web application built using Django. This project includes user registration, login, cart, product ordering, OTP-based order confirmation, admin panel, and order tracking.
 
@@ -17,7 +17,8 @@ A full-featured eCommerce web application built using Django. This project inclu
 
 ## 🖼️ Screenshots
 
-> *(Add your own screenshots here if available)*
+> ![image](https://github.com/user-attachments/assets/9f76abd6-bbba-4385-b35c-db60dadad490)
+
 
 ## 🛠️ Tech Stack
 
@@ -40,7 +41,7 @@ A full-featured eCommerce web application built using Django. This project inclu
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/ecommerce-django.git
+git clone https://github.com/mahesh6783/ecommerce.git
 cd ecommerce-django
 ```
 
@@ -50,47 +51,28 @@ python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
 ```
 
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
 
-### 4. Apply migrations
+### 3. Apply migrations
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5. Create superuser (for admin access)
+### 4. Create superuser (for admin access)
 ```bash
 python manage.py createsuperuser
 ```
 
-### 6. Run the development server
+### 5. Run the development server
 ```bash
 python manage.py runserver
 ```
 
-### 7. Access the app
+### 6. Access the app
 - Frontend: `http://127.0.0.1:8000/`
 - Admin Panel: `http://127.0.0.1:8000/admin/`
 
-## 📂 Project Structure
-
-```
-ecommerce/
-├── templates/
-│   └── order.html, login.html, etc.
-├── static/
-│   └── css, js, images
-├── media/
-│   └── product_images/
-├── models.py
-├── views.py
-├── urls.py
-└── manage.py
-```
-
+ 
 ## 🔐 Session-based OTP Handling
 
 - OTP is generated during order creation:
